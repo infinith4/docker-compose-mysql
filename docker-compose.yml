@@ -1,0 +1,11 @@
+# https://qiita.com/TAMIYAN/items/ed9ec892d91e5af962c6
+# versionは3系が最新版で、versionによって書き方が異なる
+version: "3"
+services:
+  mysql:
+    build: ./mysql/    #Dockerfileからビルドすることを示す
+    volumes:
+      - ./mysql/db:/docker-entrypoint-initdb.d  #初期データをマウントする場所
+    image: original_mysql_world # イメージの名前
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass   #コンテナ内のMySQLを起動する際のパスワードを設定
